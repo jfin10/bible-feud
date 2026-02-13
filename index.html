@@ -94,6 +94,12 @@
 
             <div class="answers-board" id="answersBoard"></div>
 
+            <div class="input-controls">
+                <input type="text" id="answerInput" placeholder="Type answer..."
+                    onkeydown="if(event.key === 'Enter') checkAnswer()">
+                <button class="control-btn" onclick="checkAnswer()">Submit</button>
+            </div>
+
             <div class="game-controls">
                 <button class="control-btn reveal-btn" onclick="revealAnswer()">Reveal Answer</button>
                 <button class="control-btn strike-btn" onclick="addStrike()">Strike (❌)</button>

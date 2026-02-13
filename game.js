@@ -883,6 +883,43 @@ function revealAnswer() {
     }
 }
 
+function checkAnswer() {
+    const input = document.getElementById('answerInput');
+    const userAnswer = input.value.trim().toLowerCase();
+    const question = roundQuestions[currentQuestionIndex];
+
+    if (!userAnswer) return;
+
+    let found = false;
+    for (let i = 0; i < question.answers.length; i++) {
+        if (!revealedAnswers.includes(i)) {
+            // Simple match - check if text includes answer or vice versa
+            if (question.answers[i].text.toLowerCase().includes(userAnswer) ||
+                userAnswer.includes(question.answers[i].text.toLowerCase())) {
+
+                revealedAnswers.push(i);
+                roundPoints += question.answers[i].points * currentRound;
+                renderAnswers();
+                found = true;
+
+                // Check if all answers revealed
+                if (revealedAnswers.length === question.answers.length) {
+                    setTimeout(() => {
+                        awardPoints();
+                    }, 1000);
+                }
+                break;
+            }
+        }
+    }
+
+    if (!found) {
+        addStrike();
+    }
+
+    input.value = '';
+}
+
 function addStrike() {
     strikes++;
     updateStrikes();

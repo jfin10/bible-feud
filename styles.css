@@ -31,8 +31,15 @@ body {
 }
 
 @keyframes glow {
-    0%, 100% { text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8), 0 0 20px #f4c430; }
-    50% { text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8), 0 0 40px #f4c430; }
+
+    0%,
+    100% {
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8), 0 0 20px #f4c430;
+    }
+
+    50% {
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8), 0 0 40px #f4c430;
+    }
 }
 
 .menu-subtitle {
@@ -394,7 +401,44 @@ body {
         padding: 1rem;
     }
 
-    .answer-number, .answer-text, .answer-points {
+    .answer-number,
+    .answer-text,
+    .answer-points {
         font-size: 1.3rem;
     }
+}
+
+/* Input Controls */
+.input-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.input-controls input {
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: 3px solid #f4c430;
+    border-radius: 8px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+.input-controls .control-btn {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    background: #f4c430;
+    color: #0a0a2e;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.input-controls .control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(244, 196, 48, 0.4);
 }
