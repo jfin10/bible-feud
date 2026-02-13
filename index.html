@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Feud</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Opening Menu -->
+    <div id="menu">
+        <h1>BIBLE FEUD</h1>
+        <p class="menu-subtitle">Survey Says...</p>
+        <button class="btn" onclick="showRules()">Start Game</button>
+    </div>
+
+    <!-- Rules Page -->
+    <div id="rulesPage">
+        <h2 class="rules-title">HOW TO PLAY BIBLE FEUD</h2>
+        <div class="rules-content">
+            <div class="rules-section">
+                <h3>📋 GAME OVERVIEW</h3>
+                <p>Bible Feud is based on Family Feud! Two teams compete to guess the most popular answers to survey
+                    questions about the Bible. The team with the most points after 4 rounds wins and plays Fast Money
+                    for bonus points!</p>
+            </div>
+
+            <div class="rules-section">
+                <h3>🎯 REGULAR ROUNDS (Rounds 1-4)</h3>
+                <p><strong>Face-Off:</strong> One player from each team faces off to see who can give the top answer.
+                    The team with the higher answer gets to play or pass.</p>
+                <p><strong>Playing the Board:</strong> The team that won the face-off tries to reveal all answers on the
+                    board. They take turns giving answers.</p>
+                <p><strong>Strikes:</strong> If an answer is not on the board, the team gets a strike (❌). Three strikes
+                    and the other team gets a chance to steal!</p>
+                <p><strong>Stealing:</strong> The other team huddles and gives ONE answer. If it's on the board, they
+                    steal all the points. If not, the playing team gets the points.</p>
+            </div>
+
+            <div class="rules-section">
+                <h3>💰 POINT VALUES</h3>
+                <p>• Round 1: Points shown (Single)</p>
+                <p>• Round 2: Points × 2 (Double)</p>
+                <p>• Round 3: Points × 3 (Triple)</p>
+                <p>• Round 4: Points × 4 (Quadruple - only if needed)</p>
+            </div>
+
+            <div class="rules-section">
+                <h3>⚡ FAST MONEY (Bonus Round)</h3>
+                <p>The winning team plays Fast Money! Two players answer 5 questions in limited time:</p>
+                <p>• Player 1: 20 seconds to answer 5 questions</p>
+                <p>• Player 2: 25 seconds (can't duplicate Player 1's answers)</p>
+                <p>• Goal: Score 200+ combined points to WIN!</p>
+            </div>
+
+            <div class="rules-section">
+                <h3>🏆 WINNING</h3>
+                <p>The team with the most points after all rounds wins and plays Fast Money. If they score 200+ points
+                    in Fast Money, they achieve ultimate victory!</p>
+            </div>
+        </div>
+        <div class="continue-btn">
+            <button class="btn" onclick="showTeamSetup()">Continue to Team Setup</button>
+        </div>
+    </div> <!-- Added missing closing tag for #rulesPage -->
+
+    <!-- Game Container -->
+    <div id="game">
+        <!-- Team Setup -->
+        <div id="teamSetup">
+            <h2>Enter Team Names</h2>
+            <div class="team-inputs">
+                <input type="text" id="team1Name" placeholder="Team 1 Name" value="Team 1">
+                <input type="text" id="team2Name" placeholder="Team 2 Name" value="Team 2">
+            </div>
+            <button class="btn" onclick="startGame()">Start Bible Feud!</button>
+        </div>
+
+        <!-- Scoreboard -->
+        <div id="scoreboard"></div>
+
+        <!-- Round Info -->
+        <div id="roundInfo" class="round-info" style="display: none;"></div>
+
+        <!-- Game Board -->
+        <div id="gameBoard">
+            <div class="question-display">
+                <div class="question-text" id="questionText"></div>
+            </div>
+
+            <div class="strikes-display" id="strikesDisplay"></div>
+
+            <div class="answers-board" id="answersBoard"></div>
+
+            <div class="game-controls">
+                <button class="control-btn reveal-btn" onclick="revealAnswer()">Reveal Answer</button>
+                <button class="control-btn strike-btn" onclick="addStrike()">Strike (❌)</button>
+                <button class="control-btn steal-btn" onclick="stealPoints()" id="stealBtn" style="display: none;">Steal
+                    Points</button>
+                <button class="control-btn next-btn" onclick="nextQuestion()" id="nextBtn">Next Question</button>
+            </div>
+        </div>
+
+        <!-- Fast Money -->
+        <div id="fastMoney"></div>
+
+        <!-- Winner Display -->
+        <div id="winnerDisplay"></div>
+    </div> <!-- Added missing closing tag for #game -->
+
+    <script src="game.js"></script>
+</body>
+
+</html> <!-- Added missing closing tag for html -->
